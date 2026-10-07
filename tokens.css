@@ -1,0 +1,19 @@
+:root {
+  --color-paper: oklch(98% 0.006 85);
+  --color-surface: oklch(100% 0 0);
+  --color-ink: oklch(26% 0.026 200);
+  --color-muted: oklch(49% 0.025 200);
+  --color-border: oklch(88% 0.014 190);
+  --color-accent: oklch(39% 0.065 186);
+  --color-accent-hover: oklch(32% 0.055 186);
+  --color-tint: oklch(95% 0.023 180);
+  --color-danger: oklch(43% 0.15 30);
+  --color-danger-tint: oklch(96% 0.02 30);
+  --font-body: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  --font-display: var(--font-body);
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --radius-panel: 12px;
+}
