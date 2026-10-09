@@ -23,12 +23,13 @@ npm ci
 export DATABASE_URL='postgresql://postgres:password@localhost:5432/reservation'
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f db/migrations/0001_init.sql
 psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f db/migrations/0002_reservation.sql
+psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -f db/migrations/0003_labels.sql
 npm run dev
 ```
 
 `http://localhost:3000` を開きます。予約は初期投入しません。自分で予約を作り、備品では開始日時を現在以前・終了日時を未来にすると、その場で貸出を記録できます。
 
-**アプリは起動時にマイグレーションを実行しません。** AppThrust では `DatabaseChange` が `db/migrations/*.sql` を順番に適用します。ローカルでは上記の `psql` で適用してください。SQL は再実行可能です。`0002` は業務テーブルを追加し、未使用になった初期ひな形の `appthrust_demo_messages` を削除します。資源の種データは同名が存在しない場合だけ作成します。
+**アプリは起動時にマイグレーションを実行しません。** AppThrust では `DatabaseChange` が `db/migrations/*.sql` を順番に適用します。ローカルでは上記の `psql` で適用してください。SQL は再実行可能です。`0002` は業務テーブルを追加し、未使用になった初期ひな形の `appthrust_demo_messages` を削除します。資源の種データは同名が存在しない場合だけ作成します。`0003_labels.sql` はデータ画面の表・列に日本語の表示名を設定します。
 
 接続設定またはマイグレーションが不足している場合は、画面に準備状況の確認と再読み込みを案内します。接続情報は画面には出しません。
 
